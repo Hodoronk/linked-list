@@ -1,0 +1,27 @@
+{
+  "name": "linked-list",
+  "version": "1.0.0",
+  "description": "Project experimenting with linked lists from the Computer Science part of the Odin Project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack", 
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hodoronk/linked-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hodoronk/linked-list/issues"
+  },
+  "homepage": "https://github.com/Hodoronk/linked-list#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "wepack-cli": "^0.0.1-security"
+  }
+}

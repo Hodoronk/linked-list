@@ -3,6 +3,8 @@ class LinkedList {
         this.head = new Node(null);
         this.end = new Node();
         this.size = 0;
+        this.tail = null;
+        
     }
 
     prepend(value) {
@@ -32,15 +34,14 @@ class LinkedList {
     }
 
     listSize() { console.log(`Size of list:  ${this.size}`)  }
-
-    firstElement() {
-        console.log(`First element: ${this.head.next.value}`);
-    }
+    firstElement() { console.log(`First element: ${this.head.next.value}`) }
+    lastElement() {console.log(`Last Element: ${this.tail.value}`)}
 }
 
 const findLast = (element) => {
     if (element.next == null) {
         console.log(`RETURNED ELEMENT: ${element.value}` ) ;
+        linkedList.tail = element;
         return element;
     } else {
         console.log(`element value : ${element.value}`);
@@ -75,3 +76,4 @@ linkedList.append(val7);
 findLast(linkedList.head);
 linkedList.listSize();
 linkedList.firstElement();
+linkedList.lastElement();

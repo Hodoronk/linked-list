@@ -27,6 +27,27 @@ class LinkedList {
             newNode.next = null;
         }
     }
+
+    size() {
+        let counter = 0;
+        const count = (element) => {
+            if(element.next === null) {
+                counter++;
+                console.log(`counter in the end: ${counter}`) ;
+                return counter;
+            } else if(element.value === null) {             //
+                count(element.next);
+            }
+            
+            else{
+                counter++;
+                console.log(`counter: ${counter}`) ;
+                return count(element.next)
+            }
+        }
+        console.log(`SIZE OF LINKED LIST: ${count(this.head)}`) ;
+        
+    }
 }
 
 const findLast = (element) => {
@@ -64,3 +85,4 @@ linkedList.append(val6);
 linkedList.append(val7);
 
 findLast(linkedList.head);
+linkedList.size();

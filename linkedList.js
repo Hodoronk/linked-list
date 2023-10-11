@@ -2,15 +2,18 @@ class LinkedList {
     constructor() {
         this.head = new Node(null);
         this.end = new Node();
+        this.size = 0;
     }
 
     prepend(value) {
         if (this.head.next === this.end) {
             const newNode = new Node(value, this.end);
             this.head.next = newNode;
+            this.size++;
         } else {
             const newNode = new Node(value, this.head.next);
             this.head.next = newNode;
+            this.size++;
         }
     }
 
@@ -18,37 +21,18 @@ class LinkedList {
         if(this.head.next === this.end){
             const newNode = new Node(value, this.end);
             this.head.next = newNode; 
+            this.size++;
         } else {
             const lastElement = findLast(this.head) ;
-
-            
             const newNode = new Node(value);
             lastElement.next = newNode;
             newNode.next = null;
+            this.size++;
         }
     }
 
-    size() {
-        let counter = 0;
-        const count = (element) => {
-            if(element.next === null) {
-                counter++;
-                console.log(`counter in the end: ${counter}`) ;
-                return counter;
-            } else if(element.value === null) {             //
-                count(element.next);
-            }
-            
-            else{
-                counter++;
-                console.log(`counter: ${counter}`) ;
-                return count(element.next)
-            }
-        }
-        count(this.head)
-       console.log(`SIZE OF LINKED LIST: ${counter}`) ;
-        
-    }
+    listSize() { console.log(`Size of list:  ${this.size}`)  }
+
     firstElement() {
         console.log(`First element: ${this.head.next.value}`);
     }
@@ -89,5 +73,5 @@ linkedList.append(val6);
 linkedList.append(val7);
 
 findLast(linkedList.head);
-linkedList.size();
+linkedList.listSize();
 linkedList.firstElement();

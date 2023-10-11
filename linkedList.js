@@ -36,6 +36,34 @@ class LinkedList {
     listSize() { console.log(`Size of list:  ${this.size}`)  }
     firstElement() { console.log(`First element: ${this.head.next.value}`) }
     lastElement() {console.log(`Last Element: ${this.tail.value}`)}
+    at(index){
+        let indexCount = -1;
+        const assignIndices = (element) => {
+            if(element.next == null) {
+                element.index = indexCount;
+                return
+            } else {
+                element.index = indexCount;
+                indexCount++;
+                assignIndices(element.next) ;
+            }
+        }
+
+        const findIndex = (element, index) => {
+            if(element.index === index) {
+                return element.value;
+            } else{
+                return findIndex(element.next, index);
+            }
+        }
+        assignIndices(this.head);
+        if(index > indexCount) {
+            console.log(`Index too large`) ;
+        } else {
+
+            console.log(`Element at index ${index} is ${findIndex(this.head, index)}`) ;
+        }
+    }
 }
 
 const findLast = (element) => {
@@ -50,9 +78,10 @@ const findLast = (element) => {
 }
 
 class Node {
-    constructor(value = null, next = null) {
+    constructor(value = null, next = null, index = null) {
         this.value = value;
         this.next = next;
+        this.index = index;
     }
 }
 
@@ -63,8 +92,8 @@ const val2 = '2';
 const val3 = '3';
 const val4 = '4';
 const val5 = '5' ;
-const val6 = 'big value' ;
-const val7 = 'bigger value'; 
+const val6 = '6' ;
+const val7 = '7'; 
 linkedList.prepend(val);
 linkedList.prepend(val2);
 linkedList.prepend(val3);
@@ -77,3 +106,4 @@ findLast(linkedList.head);
 linkedList.listSize();
 linkedList.firstElement();
 linkedList.lastElement();
+linkedList.at(6) ;

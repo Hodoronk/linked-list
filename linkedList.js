@@ -45,8 +45,12 @@ class LinkedList {
                 return count(element.next)
             }
         }
-        console.log(`SIZE OF LINKED LIST: ${count(this.head)}`) ;
+        count(this.head)
+       console.log(`SIZE OF LINKED LIST: ${counter}`) ;
         
+    }
+    firstElement() {
+        console.log(`First element: ${this.head.next.value}`);
     }
 }
 
@@ -86,3 +90,4 @@ linkedList.append(val7);
 
 findLast(linkedList.head);
 linkedList.size();
+linkedList.firstElement();

@@ -1,24 +1,66 @@
-export class linkedList {
-
-    preapend(value) {
-        const newNode = new Node(value)
-        listHead.pointer = newNode.value;
-
+class LinkedList {
+    constructor() {
+        this.head = new Node(null);
+        this.end = new Node();
     }
-    append ( value ) {
-        const newNode = new Node (value) ;
-        newNode.pointer = listEnd.value;
 
+    prepend(value) {
+        if (this.head.next === this.end) {
+            const newNode = new Node(value, this.end);
+            this.head.next = newNode;
+        } else {
+            const newNode = new Node(value, this.head.next);
+            this.head.next = newNode;
+        }
+    }
+
+    append(value) {
+        if(this.head.next === this.end){
+            const newNode = new Node(value, this.end);
+            this.head.next = newNode; 
+        } else {
+            const lastElement = findLast(this.head) ;
+
+            
+            const newNode = new Node(value);
+            lastElement.next = newNode;
+            newNode.next = null;
+        }
     }
 }
 
-export class Node {
-    constructor( value = null, pointer = null ) {
-        this.value = value ;
-        this.pointer = pointer ;
+const findLast = (element) => {
+    if (element.next == null) {
+        console.log(`RETURNED ELEMENT: ${element.value}` ) ;
+        return element;
+    } else {
+        console.log(`element value : ${element.value}`);
+        return findLast(element.next);
     }
 }
 
-const listHead = new Node(null, null) ;
-const listEnd = new Node (null, null) ;
+class Node {
+    constructor(value = null, next = null) {
+        this.value = value;
+        this.next = next;
+    }
+}
 
+const linkedList = new LinkedList();
+
+const val = '1';
+const val2 = '2';
+const val3 = '3';
+const val4 = '4';
+const val5 = '5' ;
+const val6 = 'big value' ;
+const val7 = 'bigger value'; 
+linkedList.prepend(val);
+linkedList.prepend(val2);
+linkedList.prepend(val3);
+linkedList.prepend(val4);
+linkedList.append(val5);
+linkedList.append(val6);
+linkedList.append(val7);
+
+findLast(linkedList.head);

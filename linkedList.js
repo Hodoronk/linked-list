@@ -78,6 +78,19 @@ class LinkedList {
         crawler(this.head) 
     }
 
+    contains(value) {
+        const search = (element, value) => {
+            if(element.value === value) {
+                return console.log(true)
+            } else if(element.next == this.end) {
+                return console.log(false)
+            } else {
+                search(element.next, value) 
+            }
+        }
+        search(this.head, value) ;
+    }
+
 }
 
 const findLast = (element) => {
@@ -124,3 +137,4 @@ linkedList.at(6)
 
 
 linkedList.pop();
+linkedList.contains('2') 

@@ -37,17 +37,7 @@ class LinkedList {
     firstElement() { console.log(`First element: ${this.head.next.value}`) }
     lastElement() {console.log(`Last Element: ${this.tail.value}`)}
     at(index){
-        let indexCount = -1;
-        const assignIndices = (element) => {
-            if(element.next == null) {
-                element.index = indexCount
-                return
-            } else {
-                element.index = indexCount
-                indexCount++;
-                assignIndices(element.next) 
-            }
-        }
+        indexCount = -1;
 
         const findIndex = (element, index) => {
             if(element.index === index) {
@@ -91,6 +81,19 @@ class LinkedList {
         search(this.head, value) ;
     }
 
+    find(value) {
+        indexCount = -1;
+        assignIndices(this.head) 
+        const findValueIndex = (element, value) => {
+            if(element.value == value) {
+                return console.log(`Element value ${element.value} is at ${element.index}`)
+            } else {
+                return findValueIndex(element.next, value) ;
+            }
+        }
+        findValueIndex(this.head, value) ;
+    }
+
 }
 
 const findLast = (element) => {
@@ -111,6 +114,20 @@ class Node {
         this.index = index
     }
 }
+
+
+let indexCount;
+const assignIndices = (element) => {
+    if(element.next == null) {
+        element.index = indexCount
+        return
+    } else {
+        element.index = indexCount
+        indexCount++;
+        assignIndices(element.next) 
+    }
+}
+
 
 const linkedList = new LinkedList()
 
@@ -138,3 +155,6 @@ linkedList.at(6)
 
 linkedList.pop();
 linkedList.contains('2') 
+linkedList.find('5') ;
+linkedList.find('5') ;
+linkedList.find('5') ;

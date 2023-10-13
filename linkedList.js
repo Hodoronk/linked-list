@@ -94,6 +94,22 @@ class LinkedList {
         findValueIndex(this.head, value) ;
     }
 
+    toString() {
+        let elementString = '' ;
+        const stringer = (element) => {
+            if(element === this.end){
+               return elementString += `( ${element.value} )`
+            } else {
+                elementString += `( ${element.value} ) --> `
+                return stringer(element.next) 
+            }
+        }
+        stringer(this.head);
+
+        console.log(`ELEMENT STRING: ${elementString}`) ;
+
+    }
+
 }
 
 const findLast = (element) => {
@@ -146,15 +162,16 @@ linkedList.append(val5)
 linkedList.append(val6)
 linkedList.append(val7)
 
-findLast(linkedList.head)
 linkedList.listSize()
 linkedList.firstElement()
 linkedList.lastElement()
 linkedList.at(6) 
+console.log(`TAIL : ${linkedList.tail.value}`) ;
 
 
 linkedList.pop();
 linkedList.contains('2') 
 linkedList.find('5') ;
-linkedList.find('5') ;
-linkedList.find('5') ;
+linkedList.toString();
+
+

@@ -1,5 +1,5 @@
 # linked-list
-Project experimenting with singly linked lists from the Computer Science part of the Odin Project using many recursive functions
+Project experimenting with singly linked lists from the Computer Science part of **[The Odin Project](https://www.theodinproject.com/)** using many recursive functions
 
 ## Features
 + prepend(value): Add an element to the beginning of the linked list
